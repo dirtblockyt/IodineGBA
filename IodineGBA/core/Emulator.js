@@ -253,7 +253,7 @@ GameBoyAdvanceEmulator.prototype.setSpeed = function (speed) {
 GameBoyAdvanceEmulator.prototype.processNewSpeed = function (speed) {
     speed = +speed;
     //0.003 for the integer resampler limitations, 0x3F for int math limitations:
-    speed = +Math.min(Math.max(+speed, 0.003), 0x3F);
+    speed = +Math.min(Math.max(+speed, 0.001), 0x1F);
     if ((+speed) != (+this.settings.emulatorSpeed)) {
         this.settings.emulatorSpeed = +speed;
         this.calculateTimings();
